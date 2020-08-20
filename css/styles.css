@@ -1,0 +1,145 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   font-family: sans-serif;
+}
+
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background: #223377;
+}
+
+.players-log {
+   position: relative;
+}
+
+.players-log form {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   background: #446677;
+   padding: 4em;
+   border-radius: 0 2em ;
+   box-shadow: .5em .5em 0 .1em #000,
+   .7em .7em .3em .1em #0007, 
+   inset 0 0 .3em .05em #000 ;
+}
+
+.players-log h1 {
+   align-self: center;
+   color: #fff;
+   font-weight: 700;
+   letter-spacing: .1em;
+}
+
+.players-log .player-name{
+   margin-top: 1em;
+   font-size: 2em;
+   padding: .2em;
+   color: #446677;
+   outline: none;
+   transition: outline .2s linear;
+}
+
+.players-log .btn-play {
+   align-self: center;
+   display: inline-block;
+   width: 50%;
+   margin-top: 1em;
+   font-size: 2em;
+   padding: .1em 0;
+   background: #223377;
+   color: #fff;
+   outline: none;
+   border: .1em solid #fff9;
+   border-radius: 1em;
+   cursor: pointer;
+}
+
+.players-log .btn-play:hover {
+   background: #fff;
+   color: #223377;
+}
+
+.game-panel {
+   position: relative;
+   background: #446677;
+   padding: 3em;
+   box-shadow: .5em .5em 0 .2em #000,
+      .7em .7em .4em .1em #000,
+      inset 0 0 .6em .2em #447777;
+}
+
+.game-panel .header {
+   display: flex;
+   justify-content: space-between;
+   height: 2.5em;
+}
+
+.game-panel .header .turn {
+   font-size: 1.2em;
+   color: #fff;
+   user-select: none;
+   font-weight: 800;
+   letter-spacing: .05em;
+}
+
+.game-panel .header .reset {
+   font-size: 1.3em;
+   padding: 0 .4em;
+   background: #446677;
+   color: #fff;
+   height: 100%;
+   border: .1em solid #fff9;
+   border-radius: 10%;
+   outline: none;
+   cursor: pointer;
+}
+
+.game-panel .header .reset:hover {
+   background: #fff;
+   color: #446677;
+}
+
+.game-panel .board {
+   display: grid;
+   grid-template-rows: repeat(3, 1fr);
+   grid-template-columns: repeat(3, 1fr);
+   background: #fffa;
+   width: 25em;
+   height: 25em;
+   margin-top: 1em;
+}
+
+.game-panel .board .grid {
+   border: .01em solid #000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 5em;
+   user-select: none;
+   cursor: pointer;
+}
+
+.game-panel .score {
+   display: flex;
+   flex-direction: column;
+   margin-top: 1em;
+}
+
+.game-panel .score h4 {
+   font-size: 1.3em;
+   font-weight: 800;
+   color: #fff;
+}
+
+.game-panel .score span {
+   margin-top: 1em;
+   font-size: 1em;
+   font-weight: 750;
+   color: #fff;
+}
