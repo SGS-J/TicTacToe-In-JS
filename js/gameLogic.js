@@ -30,9 +30,10 @@ class GameLogic {
         ];
         this.winner = letters.every(letter => letter === "X") ? "player1" :
         this.winner = letters.every(letter => letter === "O") ? "player2" : "";
-        ++i;
         if(this.winner == "player1" || this.winner == "player2") {
           wins.forEach(gridNumber => this.gridsToPaint.push(gridNumber - 1));
+        } else {
+          ++i;
         }
       } while(this.winner !== "" ^ i < len);
     }

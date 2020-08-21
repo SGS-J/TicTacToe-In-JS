@@ -8,16 +8,27 @@ class App {
   }
 
   waitForPlayerName() {
-    this.userLog.querySelector(".btn-play").addEventListener("click", () => {
-      const inputs = this.userLog.querySelectorAll("form .player-name");
-      if (inputs[0].value !== "" && inputs[1].value !== "") {
-        this.players[0] = inputs[0].value;
-        this.players[1] = inputs[1].value;
-        this.switchToGamePanel();
-      } else {
-        this.warnInvalidName();
+    this.userLog
+      .querySelector(".btn-play")
+      .addEventListener("click", () => this.verifyIfValidInputs());
+
+    document.body
+    .addEventListener("keydown", (e) => {
+      if (e.keyCode === 13) {
+        this.verifyIfValidInputs();
       }
     });
+  }
+
+  verifyIfValidInputs() {
+    const inputs = this.userLog.querySelectorAll("form .player-name");
+    if (inputs[0].value !== "" && inputs[1].value !== "") {
+      this.players[0] = inputs[0].value;
+      this.players[1] = inputs[1].value;
+      this.switchToGamePanel();
+    } else {
+      this.warnInvalidName();
+    }
   }
 
   switchToGamePanel() {

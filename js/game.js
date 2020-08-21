@@ -55,20 +55,26 @@ class Game {
     if (this.gameState == 0) {
       this.changeTurn();
     } else {
+      document.querySelectorAll(".game-panel .board .grid").forEach((grid) => {
+        grid.style.cursor = "default";
+      });
       this.spanTurn.textContent = this.setWinner();
       this.removeListenersFromBoard();
     }
   }
 
   clickRestartDispatched() {
+    document.querySelectorAll(".game-panel .board .grid").forEach((grid) => {
+      grid.style.cursor = "pointer";
+    });
     if (this.gameState != 0) {
       this.addListenersToBoard();
     }
-    if(this.gameState != 3){
+    if (this.gameState != 3) {
       this.turn = this.gameState == 1 ? 1 : 2;
     } else {
       this.turn = this.pointsPlayer1 < this.pointsPlayer2 ? 2 : 1;
-    } 
+    }
     this.logic.gridsToPaint = [];
     this.gameState = 0;
     this.changeTurn();
@@ -95,9 +101,9 @@ class Game {
 
   paintGrids() {
     let grids = document.querySelectorAll(".game-panel .board .grid");
-    this.logic.gridsToPaint.forEach(position => {
+    this.logic.gridsToPaint.forEach((position) => {
       grids[position].style.background = "#99fe";
-    })
+    });
   }
 
   setWinner() {
